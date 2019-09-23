@@ -1,0 +1,40 @@
+#title-header {
+  display: flex;
+  align-items: center;
+}
+
+
+#title {
+  font-family: $title-font;
+  color: $blue;
+  font-weight: bold;
+
+}
+
+#pig {
+  font-family: $pig-font;
+  font-size: 100px;
+  color: $pink;
+
+}
+
+#term_phrase {
+  width: 300px
+}
+
+.phrase-submit {
+  background-color: $pink;
+  border-radius: 5px;
+
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 20px
+}
+
+.all_terms_link {
+  color: $blue;
+  text-decoration: none;
+}
