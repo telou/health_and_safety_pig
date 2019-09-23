@@ -5,15 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Translation.destroy_all
 Term.destroy_all
 
-hello = Term.create(phrase: "Hello")
-banana = Term.create(phrase: "Banana")
-peanut = Term.create(phrase: "Peanut")
-orange = Term.create(phrase: "orange")
-
-Translation.create!(term_id: hello.id, translation: "ellohay")
-Translation.create!(term_id: banana.id, translation: "ananabay")
-Translation.create!(term_id: peanut.id, translation: "eanutpay")
-Translation.create!(term_id: orange.id, translation: "orangeyay")
+hello = Term.create!(phrase: "Hello World", translation: "Ellohay Orldway")
+banana = Term.create!(phrase: "Banana Pajama", translation: "Ananabay Ajamapay")
+peanut = Term.create!(phrase: "Peanut", translation: "Eanutpay")
+orange = Term.create!(phrase: "Orange Peel", translation: "Erangeyay Eelpay")

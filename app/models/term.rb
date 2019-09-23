@@ -1,3 +1,4 @@
 class Term < ApplicationRecord
-  has_one :translation, dependent: :destroy
+  validates :phrase, presence: true
+  validates :translation, presence: true
 end
