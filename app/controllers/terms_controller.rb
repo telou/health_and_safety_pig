@@ -1,7 +1,7 @@
 class TermsController < ApplicationController
   before_action :set_term, only: :destroy
   def index
-    @terms = Term.order(:word)
+    @terms = Term.order(:phrase)
   end
 
   def new
@@ -15,7 +15,7 @@ class TermsController < ApplicationController
     @term.save
     @translation = Translation.new
     @translation.term_id = @term.id
-    @translation.translation = translate_word(@term.word)
+    @translation.translation = translate_sentence(@term.phrase)
     @translation.save
     redirect_to terms_path
   end
@@ -41,7 +41,7 @@ class TermsController < ApplicationController
   end
 
   def term_params
-    params.require(:term).permit(:word)
+    params.require(:term).permit(:phrase)
   end
 
   def vowel?(letter)
@@ -61,5 +61,18 @@ class TermsController < ApplicationController
       "#{middle}#{first_consonants}#{ay}"
     end
   end
+
+  def translate_sentence(sentence)
+  final_sentence = []
+  word_array = sentence.split(/\b/)
+  word_array.each do |word|
+    if word.length == 1 || word =~ /\W/
+      final_sentence.push(word)
+    else
+      final_sentence.push(translate_word(word))
+    end
+  end
+  return final_sentence.join
+end
 
 end
