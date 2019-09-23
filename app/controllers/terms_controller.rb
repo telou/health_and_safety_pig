@@ -1,7 +1,7 @@
 class TermsController < ApplicationController
-
+  before_action :set_term, only: :destroy
   def index
-    @terms = Term.all
+    @terms = Term.order(:word)
   end
 
   def new
@@ -30,6 +30,8 @@ class TermsController < ApplicationController
   end
 
   def destroy
+    @term.destroy
+    redirect_to terms_path
   end
 
   private
