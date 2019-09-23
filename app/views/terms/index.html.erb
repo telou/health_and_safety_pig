@@ -1,7 +1,7 @@
 <h1>All Translations</h1>
 <div>
   <% @terms.each do |term| %>
-    <p> Health and Safety Term: <%= term.word %>
+    <p> Health and Safety Term: <%= term.phrase %>
     <% if term.translation %>
       Translation: <%= term.translation.translation %>
     <% end %>
