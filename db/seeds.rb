@@ -8,10 +8,10 @@
 Translation.destroy_all
 Term.destroy_all
 
-hello = Term.create(word: "Hello")
-banana = Term.create(word: "Banana")
-peanut = Term.create(word: "Peanut")
-orange = Term.create(word: "orange")
+hello = Term.create(phrase: "Hello")
+banana = Term.create(phrase: "Banana")
+peanut = Term.create(phrase: "Peanut")
+orange = Term.create(phrase: "orange")
 
 Translation.create!(term_id: hello.id, translation: "ellohay")
 Translation.create!(term_id: banana.id, translation: "ananabay")
