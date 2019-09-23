@@ -4,18 +4,17 @@
     <h1 id="title">Health and Safety</h1><h1 id="pig">pig</h1>
   </div>
 
-<div id="phrase-input">
-  <%= simple_form_for @term do |f| %>
-    <%= f.input :phrase, label: 'Enter a Health and Safety Term:' %>
-    <%= f.button :submit, "Translate!", class: "btn phrase-submit" %>
-  <% end %>
-</div>
+  <div id="phrase-input">
+    <%= simple_form_for @term do |f| %>
+      <%= f.input :phrase, label: 'Enter a Health and Safety Term:' %>
+      <%= f.button :submit, "Translate!", class: "btn phrase-submit" %>
+    <% end %>
+  </div>
 
-<div class="footer">
-  <%= link_to "See all translations", terms_path, class:'all_terms_link'%>
-</div>
+  <div class="footer">
+    <%= link_to "See all translations", terms_path, class:'all_terms_link'%>
+  </div>
 
 </div>
 </div>
-
 
