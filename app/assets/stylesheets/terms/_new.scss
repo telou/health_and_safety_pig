@@ -1,10 +1,9 @@
-#title-header {
+#website-name {
   display: flex;
   align-items: center;
 }
 
-
-#title {
+.title {
   font-family: $headers-font;
   color: $blue;
   font-weight: bold;
@@ -18,8 +17,26 @@
 
 }
 
+#phrase-input {
+  margin-top: 30px;
+}
+
+#translation{
+  margin-top: 50px;
+}
+
+#phrase-output {
+height: 100px;
+width: 300px;
+background-color: #FFF;
+border: solid 1px $light-gray;
+}
+
 #term_phrase {
-  width: 300px
+  width: 300px;
+  p {
+    font-family: $body-font;
+  }
 }
 
 .phrase-submit {

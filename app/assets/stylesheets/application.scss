@@ -19,3 +19,32 @@
   height: 100vh;
   padding: 20px;
 }
+
+.title-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-link {
+  display: flex;
+  align-items: center;
+}
+
+.body-text {
+  color: $blue;
+  font-size: 15px;
+  font-weight: bold;
+  p {
+    margin: 0;
+  }
+}
+
+.fa-arrow-circle-right {
+  margin-left: 5px;
+  color: $pink;
+}
+
+.container {
+  height: 100%;
+}
