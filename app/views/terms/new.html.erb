@@ -5,15 +5,4 @@
   <%= f.button :submit, "Translate!", class: "btn btn-warning" %>
 <% end %>
 
-
-<div>
-  <% counter = 1 %>
-  <% @terms.each do |term| %>
-  <p>Word <%= counter %>: <%= term.word %>
-    <% if term.translation %>
-    Translation: <%= term.translation.translation %> </p>
-    <% end %>
-  <% counter += 1 %>
-  <% end  %>
-  <%=  %>
-</div>
+<%= link_to "See all translations", terms_path  %>

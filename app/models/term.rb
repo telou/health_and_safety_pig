@@ -1,3 +1,3 @@
 class Term < ApplicationRecord
-  has_one :translation
+  has_one :translation, dependent: :destroy
 end

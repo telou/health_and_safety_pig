@@ -1,3 +1,12 @@
-<h1>Hello</h1>
+<h1>All Translations</h1>
+<div>
+  <% @terms.each do |term| %>
+    <p> Health and Safety Term: <%= term.word %>
+    <% if term.translation %>
+      Translation: <%= term.translation.translation %>
+    <% end %>
+      <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, term_path(term), method: :delete, class: 'btn delete-btn' %></p>
+  <% end %>
+</div>
 
-<%= link_to "new translation", new_term_path  %>
+<%= link_to "new translation", root_path %>
