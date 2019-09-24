@@ -5,8 +5,31 @@ class Terms extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      terms: []
+      terms: [],
     };
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(id) {
+
+    const url = `api/v1/destroy/${id}`;
+    const token = document.querySelector('meta[name="csrf-token"]').content;
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "X-CSRF-Token": token,
+        "Content-Type": "application/json"
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json()
+          } else {
+          throw new Error("Network response was not ok.");
+          }
+        })
+        // .then(() => this.props.history.push("/terms"))
+        .catch(error => console.log(error.message));
   }
 
   componentDidMount() {
@@ -36,7 +59,7 @@ class Terms extends React.Component {
             </div>
           </div>
           <div className="card-options">
-            <i className='far fa-trash-alt'></i>
+            <i className='far fa-trash-alt' onClick={ () => this.handleDelete(term.id) }></i>
           </div>
         </div>
 
