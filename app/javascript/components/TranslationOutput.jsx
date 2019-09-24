@@ -7,9 +7,11 @@ class TranslationOutput extends React.Component {
   render () {
     return (
       <div>
-      <p>
-      Translation: {this.props.name}
-      </p>
+        <div className="phrase-output">
+          <p className="translation-body">
+          {this.props.name}
+          </p>
+        </div>
       </div>
       )
   }
