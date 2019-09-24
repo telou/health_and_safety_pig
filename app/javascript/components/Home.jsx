@@ -20,11 +20,15 @@ export default () => (
         </div>
       </div>
 
-      <div className="phrase-input">
+      <div id="phrase-input">
+
       </div>
 
-      <div className="phrase-output">
+      <div id="phrase-output">
       </div>
     </div>
   </div>
-  );
+);
+
+
+
