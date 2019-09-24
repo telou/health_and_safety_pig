@@ -6,6 +6,7 @@ class Terms extends React.Component {
     super(props);
     this.state = {
       terms: [],
+      deleted: "nothing"
     };
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -23,17 +24,21 @@ class Terms extends React.Component {
       })
         .then(response => {
           if (response.ok) {
-            return response.json()
+            response.json().then(function(parsedJson){
+              return parsedJson
+            })
+            .then(parsedJSON => this.setState({ deleted: parsedJSON["message"] }))
           } else {
           throw new Error("Network response was not ok.");
           }
         })
-        // .then(() => this.props.history.push("/terms"))
+        .then(() => this.props.history.push("/terms"))
         .catch(error => console.log(error.message));
   }
 
   componentDidMount() {
     const url = "/api/v1/terms/index";
+    console.log(this.state.deleted)
       fetch(url)
         .then(response => {
           if (response.ok) {
