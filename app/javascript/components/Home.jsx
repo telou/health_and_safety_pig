@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NewTerm from "./NewTerm";
+import TranslationOutput from "./TranslationOutput";
 
 export default () => (
   <div className="page-background">
@@ -21,13 +22,8 @@ export default () => (
         </div>
       </div>
 
-      <div id="phrase-input">
       <NewTerm />
 
-      </div>
-
-      <div id="phrase-output">
-      </div>
     </div>
   </div>
 );
