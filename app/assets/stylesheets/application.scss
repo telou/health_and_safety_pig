@@ -23,13 +23,14 @@
 
 .title-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
 .top-link {
   display: flex;
+  height: 100%;
   align-items: center;
+  padding-top: 25px;
 }
 
 .body-text {
