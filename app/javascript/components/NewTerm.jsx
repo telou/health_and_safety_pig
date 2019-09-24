@@ -85,7 +85,7 @@ class NewTerm extends React.Component {
                 onChange={this.onChange}
               />
             </div>
-            <div clasName="buttonrow">
+            <div className="buttonrow">
               <button type="submit" className="btn phrase-submit">
               Translate
               </button>
