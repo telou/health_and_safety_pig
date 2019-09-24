@@ -32,7 +32,6 @@ class NewTerm extends React.Component {
     event.preventDefault();
     const url = "/api/v1/terms/create";
     const phrase = this.state.value;
-    alert('A phrase was submitted: ' + this.state.value);
 
     if (phrase.length == 0)
       return;

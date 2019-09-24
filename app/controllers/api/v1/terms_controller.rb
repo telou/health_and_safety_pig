@@ -1,5 +1,4 @@
 class Api::V1::TermsController < ApplicationController
-  before_action :set_term, only: :destroy
 
   def index
     term = Term.all
@@ -55,15 +54,13 @@ class Api::V1::TermsController < ApplicationController
   end
 
   def destroy
-    term&.destroy
-    render json: { message: 'Deleted!' }
+    puts "deleting"
+    term = Term.find(params[:id])
+    term.destroy
+    render json: { id: "#{params[:id]}" }
   end
 
   private
-
-  def term
-    term ||= Term.find(params[:id])
-  end
 
   def term_params
     params.require(:term).permit(:phrase, :translation)
