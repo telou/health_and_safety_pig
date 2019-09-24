@@ -52,7 +52,7 @@ class NewTerm extends Component {
       })
       .then(response => {
         if (response.ok) {
-          return response.json();
+          console.log(response.json());
         }
         throw new Error("Network response was not ok.");
       })
