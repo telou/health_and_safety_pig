@@ -6,6 +6,7 @@ import NewTerm from "../components/NewTerm";
 
 
 
+
 export default (
   <Router>
     <Switch>

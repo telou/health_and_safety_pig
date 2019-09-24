@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
 
 
-class NewTerm extends React.Component {
+class NewTerm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       phrase: "",
       translation: ""
@@ -13,6 +15,7 @@ class NewTerm extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.stripHtmlEntities = this.stripHtmlEntities.bind(this);
+
   }
 
   stripHtmlEntities(str) {
@@ -20,6 +23,7 @@ class NewTerm extends React.Component {
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
   }
+
 
   onChange(event) {
     this.setState({ [event.target.name]: event.target.value });
@@ -54,14 +58,14 @@ class NewTerm extends React.Component {
       })
       .then(response => this.props.history.push(`/term/${response.id}`))
       .catch(error => console.log(error.message));
-    }
+  }
 
     render() {
       return (
-        <div className="phrase-input">
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
-              <label htmlFor="termPhrase">Health and Safety Term</label>
+              <label htmlFor="termPhrase">Health and Safety Term
+              </label>
               <input
                 type="text"
                 name="phrase"
@@ -72,13 +76,11 @@ class NewTerm extends React.Component {
               />
             </div>
             <button type="submit" className="btn custom-button mt-3">
-              Translate
+            Translate
             </button>
           </form>
-        </div>
       );
-  }
-
+    }
 }
 
 export default NewTerm;

@@ -19,6 +19,16 @@ export default () => (
           <i className="fas fa-arrow-circle-right"></i>
         </div>
       </div>
+
+      <div id="phrase-input">
+
+      </div>
+
+      <div id="phrase-output">
+      </div>
     </div>
   </div>
-  );
+);
+
+
+
