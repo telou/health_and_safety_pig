@@ -19,7 +19,5 @@ class TermsTest < ApplicationSystemTestCase
 
     click_on 'Translate'
 
-
-
   end
 end
