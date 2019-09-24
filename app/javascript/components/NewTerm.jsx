@@ -15,6 +15,7 @@ class NewTerm extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.stripHtmlEntities = this.stripHtmlEntities.bind(this);
+    this.refreshPage = this.refreshPage.bind(this);
 
   }
 
@@ -27,6 +28,10 @@ class NewTerm extends React.Component {
   onChange(event) {
     this.setState({ value: event.target.value });
   }
+
+  refreshPage(event) {
+  this.setState({ value: '', translation: '' });
+}
 
   onSubmit(event) {
     event.preventDefault();
@@ -69,7 +74,7 @@ class NewTerm extends React.Component {
         <div id="phrase-input">
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
-              <label htmlFor="termPhrase">Health and Safety Term
+              <label className="label" htmlFor="termPhrase">Health and Safety Term
               </label>
               <input
                 type="text"
@@ -80,9 +85,14 @@ class NewTerm extends React.Component {
                 onChange={this.onChange}
               />
             </div>
-            <button type="submit" className="btn custom-button mt-3">
-            Translate
-            </button>
+            <div clasName="buttonrow">
+              <button type="submit" className="btn phrase-submit">
+              Translate
+              </button>
+              <button onClick={ this.refreshPage.bind(this)} className="btn refresh">
+              Refresh
+              </button>
+            </div>
           </form>
           <TranslationOutput name={this.state.translation} />
         </div>

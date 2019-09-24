@@ -57,10 +57,10 @@ class Terms extends React.Component {
         <div className="translation-card">
           <div>
             <div className="card-text">
-              <p className="blue">English:</p> <p className="pink">{term.phrase}</p>
+              <p className="blue">English: </p> <p className="pink">{term.phrase}</p>
             </div>
             <div className="card-text">
-              <p className="blue">Pig-latin:</p> <p className="pink">{term.translation}</p>
+              <p className="blue">Pig-latin: </p> <p className="pink">{term.translation}</p>
             </div>
           </div>
           <div className="card-options">

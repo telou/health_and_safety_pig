@@ -17,22 +17,44 @@
 
 }
 
-
-#translation{
+#phrase-input{
   margin-top: 50px;
 }
 
 
-#term_phrase {
-  width: 300px;
-  p {
-    font-family: $body-font;
-  }
+.label {
+  font-family: $body-font;
+}
+
+#termPhrase {
+  width: 250px;
 }
 
 .phrase-submit {
   background-color: $pink;
   border-radius: 5px;
+  color: $blue;
+}
+
+.refresh {
+  background-color: $blue;
+  border-radius: 5px;
+  color: #FFF;
+  margin-left: 20px;
+}
+
+.translation-body {
+  font-family: $body-font;
+  color: $blue;
+  padding: 10px;
+}
+
+.phrase-output {
+  width: 380px;
+  height: 130px;
+  background-color: #FFF;
+  border: solid 1px $light-gray;
+  margin-top: 20px;
 
 }
 
