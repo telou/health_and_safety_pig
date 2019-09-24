@@ -1,26 +1,28 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
+import TranslationOutput from "./TranslationOutput";
 
 
 class NewTerm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {value: ''};
-
+    this.state = {
+      value: '',
+      translation: '',
+    };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    // this.stripHtmlEntities = this.stripHtmlEntities.bind(this);
+    this.stripHtmlEntities = this.stripHtmlEntities.bind(this);
 
   }
 
-  // stripHtmlEntities(str) {
-  //   return String(str)
-  //     .replace(/</g, "&lt;")
-  //     .replace(/>/g, "&gt;");
-  // }
-
+  stripHtmlEntities(str) {
+    return String(str)
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
 
   onChange(event) {
     this.setState({ value: event.target.value });
@@ -51,9 +53,14 @@ class NewTerm extends React.Component {
       })
       .then(response => {
         if (response.ok) {
-          console.log(response.json());
+          response.json().then(function(parsedJson) {
+            console.log('This is a parsed json', parsedJson);
+            this.setState({ translation: parsedJson["translation"] });
+          });
+        } else {
+          throw new Error("Network response was not ok.");
         }
-        throw new Error("Network response was not ok.");
+
       })
       // .then(response => this.props.history.push(`/term/${response.id}`))
       .catch(error => console.log(error.message));
@@ -61,13 +68,14 @@ class NewTerm extends React.Component {
 
     render() {
       return (
+        <div id="phrase-input">
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
               <label htmlFor="termPhrase">Health and Safety Term
               </label>
               <input
                 type="text"
-                value={this.stat}
+                value={this.state.value}
                 id="termPhrase"
                 className="form-control"
                 required
@@ -78,6 +86,9 @@ class NewTerm extends React.Component {
             Translate
             </button>
           </form>
+          <TranslationOutput name={"hello"} />
+        </div>
+
       );
     }
 }
