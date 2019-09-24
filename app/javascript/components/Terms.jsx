@@ -23,7 +23,10 @@ class Terms extends React.Component {
       })
         .then(response => {
           if (response.ok) {
-            return response.json()
+            response.json().then(function(parsedJson){
+              return parsedJson
+            })
+            .then(parsedJSON => this.setState({ terms: this.state.terms.filter(term => term.id !== parsedJSON["id"])}),
           } else {
           throw new Error("Network response was not ok.");
           }
@@ -47,6 +50,7 @@ class Terms extends React.Component {
 
   render() {
     const { terms } = this.state;
+    console.log(terms);
     const allTerms = terms.map((term, index) => (
       <div key={index}>
         <div className="translation-card">
