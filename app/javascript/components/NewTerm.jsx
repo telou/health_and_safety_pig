@@ -54,13 +54,12 @@ class NewTerm extends React.Component {
       .then(response => {
         if (response.ok) {
           response.json().then(function(parsedJson) {
-            console.log('This is a parsed json', parsedJson);
-            this.setState({ translation: parsedJson["translation"] });
-          });
+            return parsedJson
+          })
+          .then(parsedJSON => this.setState({ translation: parsedJSON["translation"] }))
         } else {
           throw new Error("Network response was not ok.");
         }
-
       })
       // .then(response => this.props.history.push(`/term/${response.id}`))
       .catch(error => console.log(error.message));
@@ -86,7 +85,7 @@ class NewTerm extends React.Component {
             Translate
             </button>
           </form>
-          <TranslationOutput name={"hello"} />
+          <TranslationOutput name={this.state.translation} />
         </div>
 
       );
