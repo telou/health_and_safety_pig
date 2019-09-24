@@ -57,7 +57,7 @@ class Api::V1::TermsController < ApplicationController
     puts "deleting"
     term = Term.find(params[:id])
     term.destroy
-    render json: { id: "#{params[:id]}" }
+    render json: { message: params[:id] }
   end
 
   private

@@ -6,6 +6,7 @@ class Terms extends React.Component {
     super(props);
     this.state = {
       terms: [],
+      deleted: "nothing"
     };
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -26,17 +27,18 @@ class Terms extends React.Component {
             response.json().then(function(parsedJson){
               return parsedJson
             })
-            .then(parsedJSON => this.setState({ terms: this.state.terms.filter(term => term.id !== parsedJSON["id"])}),
+            .then(parsedJSON => this.setState({ deleted: parsedJSON["message"] }))
           } else {
           throw new Error("Network response was not ok.");
           }
         })
-        // .then(() => this.props.history.push("/terms"))
+        .then(() => this.props.history.push("/terms"))
         .catch(error => console.log(error.message));
   }
 
   componentDidMount() {
     const url = "/api/v1/terms/index";
+    console.log(this.state.deleted)
       fetch(url)
         .then(response => {
           if (response.ok) {
@@ -50,7 +52,6 @@ class Terms extends React.Component {
 
   render() {
     const { terms } = this.state;
-    console.log(terms);
     const allTerms = terms.map((term, index) => (
       <div key={index}>
         <div className="translation-card">
