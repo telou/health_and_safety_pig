@@ -65,7 +65,7 @@ class NewTerm extends React.Component {
           throw new Error("Network response was not ok.");
         }
       })
-      .then(response => this.props.history.push(`/term/${response.id}`))
+      // .then(response => this.props.history.push(`/term/${response.id}`))
       .catch(error => console.log(error.message));
   }
 
