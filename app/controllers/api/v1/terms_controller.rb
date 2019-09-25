@@ -5,14 +5,9 @@ class Api::V1::TermsController < ApplicationController
     render json: term
   end
 
-  def new
-    # @term = Term.new
-    # @terms = Term.all
-  end
-
   def create
     term = Term.new(term_params)
-    term.translation = term.translate_sentence(term.phrase)
+    term.translation = term.translate(term.phrase)
     term.save!
     if term
       render json: term
