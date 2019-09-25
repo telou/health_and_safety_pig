@@ -1,7 +1,6 @@
 class Term < ApplicationRecord
   validates :phrase, presence: true, length: { in: 5..50 }
 
-
   def vowel?(letter)
     vowel_array = ["a", "e", "i", "o", "u"]
     vowel_array.include? letter
