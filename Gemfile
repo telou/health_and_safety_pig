@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'rspec-rails', '~> 3.8'
+gem 'factory_bot'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -28,6 +29,8 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   gem 'capybara'
+  gem 'phantomjs'
+  gem 'poltergeist'
   gem 'webdrivers', '~> 4.0'
   gem 'launchy'
 end
