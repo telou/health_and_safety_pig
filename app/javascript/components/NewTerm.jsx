@@ -30,8 +30,8 @@ class NewTerm extends React.Component {
   }
 
   refreshPage(event) {
-  this.setState({ value: '', translation: '' });
-}
+    this.setState({ value: '', translation: '' });
+  }
 
   onSubmit(event) {
     event.preventDefault();
@@ -89,7 +89,7 @@ class NewTerm extends React.Component {
               <button type="submit" className="btn phrase-submit">
               Translate
               </button>
-              <button onClick={ this.refreshPage.bind(this)} className="btn refresh">
+              <button onClick={this.refreshPage} className="btn refresh">
               Refresh
               </button>
             </div>
