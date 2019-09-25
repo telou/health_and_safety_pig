@@ -15,7 +15,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'rspec-rails', '~> 3.8'
-gem 'factory_bot'
+gem 'factory_bot_rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -3,24 +3,23 @@ class Term < ApplicationRecord
 
   def vowel?(letter)
     vowel_array = ["a", "e", "i", "o", "u"]
-    vowel_array.include? letter
+    vowel_array.include? letter.downcase
   end
 
   def translate_word(word)
     yay = "yay"
     ay = "ay"
     if vowel?(word[0])
-      return "#{word}#{yay}"
+      return "#{word}#{yay}".capitalize
     else
       vowel_index = word.chars.index { |letter| vowel? letter }
       first_consonants = word[0...vowel_index]
       middle = word[vowel_index...word.length]
-      word = "#{middle}#{first_consonants}#{ay}"
+      word = "#{middle}#{first_consonants}#{ay}".capitalize
     end
-    word.capitalize
   end
 
-  def translate_sentence(sentence)
+  def translate(sentence)
     final_sentence = []
     word_array = sentence.split(/\b/)
     word_array.each do |word|
