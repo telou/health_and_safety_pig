@@ -33,4 +33,5 @@ group :development, :test do
   gem 'poltergeist'
   gem 'webdrivers', '~> 4.0'
   gem 'launchy'
+  gem 'rails-controller-testing'
 end
