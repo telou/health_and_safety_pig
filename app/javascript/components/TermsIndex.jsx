@@ -64,7 +64,6 @@ class TermsIndex extends React.Component {
             <button onClick={() => this.handleDelete(index)} className="btn phrase-submit">
               Delete
             </button>
-            <i className='far fa-trash-alt' onClick={() => this.handleDelete(index)}></i>
           </div>
         </div>
 
