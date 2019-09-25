@@ -1,38 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import deleteTerm from "../actions/termActions"
 
 class TermsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      terms: [],
-      deleted: "nothing"
+      terms: []
     };
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleDelete(id) {
+  handleDelete(index) {
 
-    const url = `api/v1/destroy/${id}`;
-    const token = document.querySelector('meta[name="csrf-token"]').content;
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "X-CSRF-Token": token,
-        "Content-Type": "application/json"
-        }
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error("Network response was not ok.");
-        })
-        .then(response => this.setState({ deleted: `deleted ${id}` },
-          ))
-        // .then(() => this.props.history.push("/terms"))
-        .catch(error => console.log(error.message));
+    this.onDelete(this.state.terms[index].id)
+
   }
+
+  onDelete(id) {
+    deleteTerm(id)
+      .then((data) => {
+        let newTerms = this.state.terms.filter((term) => {
+          return id !== term.id;
+        });
+
+        this.setState(state => {
+          state.terms = newTerms;
+          return state;
+        });
+      })
+      .catch((err) => {
+        console.error('err', err);
+      });
+    }
 
   componentDidMount() {
     const url = "/api/v1/terms/index";
@@ -61,7 +61,10 @@ class TermsIndex extends React.Component {
             </div>
           </div>
           <div className="card-options">
-            <i className='far fa-trash-alt' onClick={ () => this.handleDelete(term.id) }></i>
+            <button onClick={() => this.handleDelete(index)} className="btn phrase-submit">
+              Delete
+            </button>
+            <i className='far fa-trash-alt' onClick={() => this.handleDelete(index)}></i>
           </div>
         </div>
 
