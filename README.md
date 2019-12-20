@@ -1,1 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Health and Safety pig latin translator. 
+View online here: https://health-and-safety-pig.herokuapp.com/
